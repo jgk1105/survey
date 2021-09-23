@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    var inputtit = localStorage['surveytitle'];
+      //localStorage.removeItem( 'surveytitle' ); // Clear the localStorage
+    var inputque1 = localStorage['surveyquestion1'];
+    var inputque2 = localStorage['surveyquestion2'];
+    var inputque3 = localStorage['surveyquestion3'];
+    var inputque4 = localStorage['surveyquestion4'];
+
+
+    document.write('<form>')
+    document.write('<ol>');
+
+    i=0;
+    while(i< inputque1){
+      document.write('<li>'+ localStorage['1Questions'+i] + '</li>' + '<label>' + '<input type="radio"  name="yesno'+ i + '" value="예">' +'예' +'</label>' +
+      '<label>' + '<input type="radio"  name="yesno' + i + '" value="아니오">' +'아니오' +'</label>')
+      i= i+ 1;
+    };
+    document.write('</ol>');
+
+
+
+    document.write('<ol>');
+
+    i=0;
+    while(i< inputque2){
+      document.write('<li>'+ localStorage['2Questions'+i] + '</li>' + '<label>' + '<input type="radio"  name="3sel'+ i + '" value="그렇다">' +'그렇다' +'</label>' +
+      '<label>' + '<input type="radio"  name="3sel' + i + '" value="보통이다">' +'보통이다' +'</label>' +
+      '<label>' + '<input type="radio"  name="3sel' + i + '" value="그렇지않다">' +'그렇지않다' +'</label>')
+      i= i+ 1;
+    };
+    document.write('</ol>');
+
+
+
+    document.write('<ol>');
+
+    i=0;
+    while(i< inputque3){
+      document.write('<li>'+ localStorage['3Questions'+i] + '</li>' + '<label>' + '<input type="radio"  name="5sel'+ i + '" value="매우그렇다">' +'매우그렇다' +'</label>' +
+      '<label>' + '<input type="radio"  name="5sel'+ i + '" value="그렇다">' +'그렇다' +'</label>' +
+      '<label>' + '<input type="radio"  name="5sel' + i + '" value="보통이다">' +'보통이다' +'</label>' +
+      '<label>' + '<input type="radio"  name="5sel' + i + '" value="그렇지않다">' +'그렇지않다' +'</label>' +
+      '<label>' + '<input type="radio"  name="5sel' + i + '" value="매우그렇지않다">' +'매우그렇지않다' +'</label>')
+      i= i+ 1;
+    };
+    document.write('</ol>');
+
+
+
+    document.write('<ol>');
+
+    i=0;
+    while(i< inputque4){
+      document.write('<li>'+ localStorage['4Questions'+i] +'</li>' + '<li>' + '<input type= "text" id="amswers">' + '</li>');
+      i= i+ 1;
+    };
+    document.write('</ol>');
+    document.write('</form>');
+
+    </script>
+
+
+
+    <input type="button"  onclick="radio_chk()" id="add" value="제출" >
+
+
+
+    <script>
+    function radio_chk(){
+      j=0
+      while(j<inputque1){
+
+
+        var radio_btn1=document.getElementsByName("yesno"+j);
+        for(var i=0; i<radio_btn1.length; i++){
+          if(radio_btn1[i].checked==true){
+            document.getElementById('add').addEventListener('click', localStorage.setItem('Result1_'+j, radio_btn1[i].value));
+          }
+        }
+        j++
+      }
+
+      j=0
+      while(j<inputque2){
+
+
+        var radio_btn2=document.getElementsByName("3sel"+j);
+        for(var i=0; i<radio_btn2.length; i++){
+          if(radio_btn2[i].checked==true){
+            document.getElementById('add').addEventListener('click', localStorage.setItem('Result2_'+j, radio_btn2[i].value));
+          }
+        }
+        j++
+      }
+
+      j=0
+      while(j<inputque3){
+
+
+        var radio_btn3=document.getElementsByName("5sel"+j);
+        for(var i=0; i<radio_btn3.length; i++){
+          if(radio_btn3[i].checked==true){
+            document.getElementById('add').addEventListener('click', localStorage.setItem('Result3_'+j, radio_btn3[i].value));
+          }
+        }
+        j++
+      }
+    }
+
+
+    var answers = document.querySelectorAll("answers");
+
+    document.getElementById('add').addEventListener('click', store_data);
+
+    function store_data(){ // Store value from input field to local store
+      i=0;
+      while(i< inputque4){
+        localStorage.setItem( 'Result4_'+i, amswers[i].value);
+        i= i+1;
+      };
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>설문지 만들기</title>
+  </head>
+  <body>
+    <h1>설문지 만들기</h1>
+    <form>
+      <fieldset style = "width: 100">
+        설문 제목 : <input id= "tit" type="text" required><br>
+        질문 수 :<br>
+        예/아니오: <input id= "que1" type="number" min='0' step='1'><br>
+        3지선다(그렇다/보통이다/그렇지않다): <input id= "que2" type="number" min='0' step='1'><br>
+        5지선다(매우그렇다~매우그렇지않다): <input id= "que3" type="number" min='0' step='1'><br>
+        주관식: <input id= "que4" type="number" min='0' step='1'><br>
+      </fieldset>
+    </form>
+
+    <input type= "button" value= "이전" onclick=" window.location.href= 'makesurvey.html'">
+    <input type= "button" id= "add" value= "다음" onclick="window.location.href= 'make2.html'" >
+
+    <script>
+      var inputtit = document.getElementById('tit');
+      var inputque1 = document.getElementById('que1');
+      var inputque2 = document.getElementById('que2');
+      var inputque3 = document.getElementById('que3');
+      var inputque4 = document.getElementById('que4');
+
+      document.getElementById('add').addEventListener('click',store_data);  //Button Click Listener.
+
+     function store_data(){ // Store value from input field to local store
+       localStorage.setItem( 'surveytitle', inputtit.value);
+       localStorage.setItem( 'surveyquestion1', inputque1.value);
+       localStorage.setItem( 'surveyquestion2', inputque2.value);
+       localStorage.setItem( 'surveyquestion3', inputque3.value);
+       localStorage.setItem( 'surveyquestion4', inputque4.value);
+     }
+   </script>
+  </body>
+</html>

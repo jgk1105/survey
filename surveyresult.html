@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      var inputque1 = localStorage['surveyquestion1']
+      var inputque2 = localStorage['surveyquestion2']
+      var inputque3 = localStorage['surveyquestion3']
+      var inputque4 = localStorage['surveyquestion4']
+
+
+      i=0;
+      while(i<inputque1){
+        document.write('<li>' + localStorage['1Questions'+i] + ':' + localStorage['Result1_' +i])
+        i++
+      }
+
+      i=0;
+      while(i<inputque2){
+        document.write('<li>' + localStorage['2Questions'+i] + ':' + localStorage['Result2_' +i])
+        i++
+      }
+
+      i=0;
+      while(i<inputque3){
+        document.write('<li>' + localStorage['3Questions'+i] + ':' + localStorage['Result3_' +i])
+        i++
+      }
+
+      i=0;
+      while(i<inputque4){
+        document.write('<li>' + localStorage['4Questions'+i] + ':' + localStorage['Result4_' +i])
+        i++
+      }
+
+
+
+    </script>
+  </body>
+</html>

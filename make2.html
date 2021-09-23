@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>설문지 만들기</title>
+  </head>
+  <body>
+    <h1>설문지 만들기</h1>
+
+    <h2>질문 작성</h2>
+    <script>
+      var inputtit = localStorage['surveytitle'];
+        //localStorage.removeItem( 'surveytitle' ); // Clear the localStorage
+      var inputque1 = localStorage['surveyquestion1'];
+      var inputque2 = localStorage['surveyquestion2'];
+      var inputque3 = localStorage['surveyquestion3'];
+      var inputque4 = localStorage['surveyquestion4'];
+
+
+      document.write('예/아니오');
+      document.write('<ol>');
+
+      i=0;
+      while(i< inputque1){
+        document.write('<li>'+ '<input type= "text" id="quest1" required>' + '</li>');
+        i= i+ 1;
+      };
+      document.write('</ol>');
+
+
+      document.write('3지선다');
+      document.write('<ol>');
+
+      i=0;
+      while(i< inputque2){
+        document.write('<li>'+ '<input type= "text" id="quest2" required>' + '</li>');
+        i= i+ 1;
+      };
+      document.write('</ol>');
+
+
+      document.write('5지선다');
+      document.write('<ol>');
+
+      i=0;
+      while(i< inputque3){
+        document.write('<li>'+ '<input type= "text" id="quest3" required>' + '</li>');
+        i= i+ 1;
+      };
+      document.write('</ol>');
+
+
+      document.write('주관식');
+      document.write('<ol>');
+
+      i=0;
+      while(i< inputque4){
+        document.write('<li>'+ '<input type= "text" id="quest4" required>' + '</li>');
+        i= i+ 1;
+      };
+      document.write('</ol>');
+
+    </script>
+
+
+
+
+    <input type= "button" value= "이전" onclick=" window.location.href= 'make1.html'">
+    <input type= "button" id="add" value= "다음" onclick=" window.location.href= 'surveyscreen.html'">
+    <script>
+      var questions1 = document.querySelectorAll("#quest1");
+
+      document.getElementById('add').addEventListener('click', store_data1);
+
+      function store_data1(){ // Store value from input field to local store
+        i=0;
+        while(i< inputque1){
+          localStorage.setItem( '1Questions'+i, questions1[i].value);
+          i= i+1;
+        };
+      }
+
+      var questions2 = document.querySelectorAll("#quest2");
+
+      document.getElementById('add').addEventListener('click', store_data2);
+
+      function store_data2(){ // Store value from input field to local store
+        i=0;
+        while(i< inputque2){
+          localStorage.setItem( '2Questions'+i, questions2[i].value);
+          i= i+1;
+        };
+      }
+
+      var questions3 = document.querySelectorAll("#quest3");
+
+      document.getElementById('add').addEventListener('click', store_data3);
+
+      function store_data3(){ // Store value from input field to local store
+        i=0;
+        while(i< inputque3){
+          localStorage.setItem( '3Questions'+i, questions3[i].value);
+          i= i+1;
+        };
+      }
+
+      var questions4 = document.querySelectorAll("#quest4");
+
+      document.getElementById('add').addEventListener('click', store_data4);
+
+      function store_data4(){ // Store value from input field to local store
+        i=0;
+        while(i< inputque4){
+          localStorage.setItem( '4Questions'+i, questions4[i].value);
+          i= i+1;
+        };
+      }
+    </script>
+  </body>
+</html>
