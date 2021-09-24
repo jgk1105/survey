@@ -59,7 +59,7 @@
 
     i=0;
     while(i< inputque4){
-      document.write('<li>'+ localStorage['4Questions'+i] +'</li>' + '<li>' + '<input type= "text" id="amswers">' + '</li>');
+      document.write('<li>'+ localStorage['4Questions'+i] +'<br>'+ '<input type= "text" id="amswers">' + '</li>');
       i= i+ 1;
     };
     document.write('</ol>');
@@ -69,7 +69,7 @@
 
 
 
-    <input type="button"  onclick="radio_chk()" id="add" value="제출" >
+    <input type="button"  onclick="radio_chk()" "store_data" id="add" value="제출" >
 
 
 
